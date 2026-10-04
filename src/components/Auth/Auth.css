@@ -1,0 +1,203 @@
+/* =========================================================
+   AUTH STYLES (Login + Signup)
+   Shared by Login.jsx and Signup.jsx. Uses the design tokens
+   defined in src/App.css (--color-primary, --font-heading, ...),
+   which is already loaded globally by the time these pages render.
+   ========================================================= */
+
+.auth-page {
+  min-height: 100vh;
+  background: #fff;
+  padding: 32px 48px 64px;
+ 
+}
+
+/* ===== Top bar: just the logo, top-right ===== */
+.auth-topbar {
+  display: flex;
+  justify-content: flex-end;
+}
+.auth-logo-link { display: inline-flex; }
+.auth-logo-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===== Content column ===== */
+.auth-content {
+  max-width: 560px;
+  margin: 56px auto 0 64px; /* left-aligned, like the reference design */
+  margin-left: 25%;
+}
+
+.auth-title {
+  font-family: var(--font-heading, Georgia, serif);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-text, #2b1f3a);
+  margin: 0 0 10px;
+}
+
+.auth-subtitle {
+  color: var(--color-text-muted, #6f6580);
+  font-size: 0.95rem;
+  margin: 0 0 32px;
+}
+
+/* ===== Form ===== */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #6f6580);
+}
+
+.form-field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd3e8;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--color-text, #2b1f3a);
+  background: #fff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-field input::placeholder { color: #b3a5c4; }
+
+.form-field input:focus {
+  outline: none;
+  border-color: var(--color-primary, #8a6fae);
+  box-shadow: 0 0 0 3px rgba(138, 111, 174, 0.12);
+}
+
+.form-field input.has-error { border-color: #d9534f; }
+.field-error { font-size: 0.78rem; color: #d9534f; }
+
+/* ===== Password field with show/hide ===== */
+.password-wrapper { position: relative; display: flex; align-items: center; }
+.password-wrapper input { padding-right: 44px; }
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  display: flex;
+  color: var(--color-text-muted, #6f6580);
+  padding: 4px;
+}
+.password-toggle:hover { color: var(--color-text, #2b1f3a); }
+
+/* ===== Checkbox row ===== */
+.auth-checkbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--color-text-muted, #6f6580);
+}
+.auth-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.auth-checkbox input { accent-color: var(--color-primary, #8a6fae); }
+
+.auth-link { color: var(--color-primary, #8a6fae); font-weight: 600; }
+.auth-link:hover { color: var(--color-primary-dark, #6d4f96); }
+
+/* ===== Submit button ===== */
+.auth-submit {
+  margin-top: 4px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-primary-dark, #6d4f96);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.auth-submit:hover:not(:disabled) {
+  background: var(--color-primary, #8a6fae);
+  transform: translateY(-1px);
+}
+.auth-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+
+/* ===== Footer text under the button ===== */
+.auth-footer-text {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-text-muted, #6f6580);
+  margin: 4px 0 0;
+}
+
+/* ===== Divider ===== */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text-muted, #6f6580);
+  font-size: 0.8rem;
+  margin: 28px 0 18px;
+}
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #eee5f4;
+}
+.auth-divider span { padding: 0 12px; }
+
+/* ===== Social buttons ===== */
+.auth-socials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.auth-social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  border: 1px solid #ddd3e8;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.auth-social-btn:hover { border-color: var(--color-primary, #8a6fae); background: var(--color-bg-soft, #f7f1fb); }
+.auth-social-icon {
+  height: 20px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===== Mobile responsive (screens up to 768px) ===== */
+@media (max-width: 768px) {
+  .auth-page { padding: 20px 20px 48px; }
+  .auth-content { margin: 32px auto 0; max-width: 100%; }
+  .auth-row { grid-template-columns: 1fr; gap: 16px; }
+  .auth-title { font-size: 1.8rem; }
+  .auth-logo-img { height: 48px; }
+  .auth-socials { gap: 10px; }
+  .auth-social-btn { height: 44px; }
+}

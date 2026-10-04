@@ -1,0 +1,249 @@
+/* =========================================================
+   LANDING PAGE STYLES
+   Only the sections that belong to the landing page itself
+   (Hero, Categories, Special Offer, Features).
+   Shared tokens (--color-primary, --radius, ...) and shared
+   elements (Navbar, Footer, .btn) come from src/App.css,
+   which is imported once in App.jsx before this file.
+   ========================================================= */
+
+/* ===== Hero ===== */
+.hero {
+  padding: 56px 24px;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  background-image: url("../images/hero.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+ padding-left: 180px  ;
+ /* min-height: 500px;*/
+}
+.hero__text { flex: 1; }
+.hero__eyebrow {
+  color: var(--color-primary);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px;
+ 
+}
+.hero__title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+.hero__subtitle {
+  color: var(--color-text-muted);
+  max-width: 38ch;
+  margin: 0 0 28px;
+  line-height: 1.6;
+}
+
+
+/* ===== Categories ===== */
+.categories {
+  max-width: var(--container-width);
+  margin: 0 auto;
+ 
+  padding: 0 24px 56px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.category-card {
+  position: relative;
+  background: var(--card-bg, #fff); 
+  border-radius: var(--radius);
+  overflow: hidden;
+  padding-bottom: 19px ;          /* هامش حول الصورة كما في التصميم */
+  box-shadow: 0 4px 16px rgba(43, 31, 58, 0.08);
+  border: 1px solid #f0e8f6;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.category-card__body {
+  padding: 10px 0 0;
+
+}
+
+.category-card__media {
+  width: 100%;
+  aspect-ratio: 16 / 10;            /* نفس النسبة لكل الكاردات */
+  overflow: hidden;
+  border-radius: 8px;              /* زوايا الصورة كما في التصميم */
+}
+.category-card__img {
+  width: 100%;
+  height: 100%;                     /* تملأ القسم بالكامل */
+  object-fit: cover;                /* تملأ المساحة بدون تشويه */
+  object-position: center;
+  display: block;
+}
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(43, 31, 58, 0.14);
+}
+
+
+.category-card__body h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.category-card__link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+.category-card__link:hover { color: var(--color-primary); }
+
+/* يجعل الكارد كله رابطاً وليس النص فقط */
+.category-card__link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+/* ===== Special offer ===== */
+.offer {
+  position: relative;
+  background-color: var(--color-bg-soft);          /* لون احتياطي */
+  background-image: var(--offer-bg, none);         /* الصورة من الـ prop */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 72px 24px;
+  min-height: 320px;
+}
+.offer__content {
+  max-width: var(--container-width);
+  flex: 1;
+  padding-left: max(24px, calc((100% - var(--container-width)) / 2 + 24px));
+}
+
+.offer__label {
+  color: var(--color-primary-dark);
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+.offer__title {
+  font-family: var(--font-heading);
+  font-size: 2.4rem;
+  margin: 0 0 12px;
+}
+.offer__subtitle {
+  color: var(--color-text-muted);
+  margin: 0 0 24px;
+}
+.offer__image {
+  position: relative;
+  flex: 1;
+  max-width: 480px;
+  padding-right: max(24px, calc((100% - var(--container-width)) / 2 + 24px));
+}
+.offer__image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+.offer__badge {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: max(24px, calc((100% - var(--container-width)) / 2 + 24px));
+  background: var(--color-primary);
+  color: #fff;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(138,111,174,0.4);
+}
+.offer__badge span { font-size: 1.2rem; }
+
+/* ===== Features ===== */
+.features {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  border-top: 1px solid #eee5f4;
+}
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.feature__icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.feature h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+.feature p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE (screens up to 768px) — landing page only
+   ====================================================== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse;
+    padding: 24px 16px 40px;
+    gap: 24px;
+    text-align: center;
+  }
+  .hero__subtitle { margin-left: auto; margin-right: auto; }
+  .hero__title { font-size: 2rem; }
+  .hero__image img { height: 240px; }
+  .hero__text { display: flex; flex-direction: column; align-items: center; }
+
+  .categories {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 16px 32px;
+    gap: 14px;
+  }
+
+  .offer {
+    flex-direction: column;
+    padding: 32px 16px;
+    text-align: center;
+  }
+  .offer__content {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .offer__title { font-size: 1.8rem; }
+
+  .offer__badge {
+  right: 16px;
+  top: 16px;
+  transform: none;
+}
+  .features {
+    display: none;
+  }
+}

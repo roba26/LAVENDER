@@ -1,0 +1,43 @@
+/* =========================================================
+   VERIFY CODE PAGE
+   يعتمد على Auth.css و ForgotPassword.css (fp-layout, fp-back, ...)
+   ========================================================= */
+
+.vc-form { gap: 14px; }
+
+/* ===== Resend ===== */
+.vc-resend {
+  margin: 0 0 6px;
+  font-size: 0.88rem;
+  color: var(--color-text, #2b1f3a);
+}
+.vc-resend-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 600;
+  color: var(--color-primary, #8a6fae);
+}
+.vc-resend-btn:hover:not(:disabled) { color: var(--color-primary-dark, #6d4f96); }
+.vc-resend-btn:disabled {
+  color: var(--color-text-muted, #6f6580);
+  cursor: not-allowed;
+}
+
+/* ===== Illustration: بطاقة رمادية بزوايا دائرية كما في التصميم ===== */
+.vc-illustration img {
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .vc-illustration img {
+    max-width: 240px;
+    border-radius: 18px;
+  }
+}

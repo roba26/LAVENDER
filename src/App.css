@@ -1,0 +1,268 @@
+/* =========================================================
+   GLOBAL STYLES
+   Design tokens + base reset + styles shared across pages
+   (Navbar, Footer, shared button). Page-specific sections
+   live in their own CSS file, e.g. src/pages/LandingPage.css
+   ========================================================= */
+
+/* ===== Design tokens ===== */
+:root {
+  --color-primary: #8a6fae;
+  --color-primary-dark: #6d4f96;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f1fb;
+  --color-text: #2b1f3a;
+  --color-text-muted: #6f6580;
+  --color-footer-bg: #2b1f3a;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+  --radius: 14px;
+  --container-width: 1180px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+
+.app { overflow-x: hidden; }
+
+/* ===== Shared button (used across pages) ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--color-primary-dark); }
+.btn--outline {
+  background: #fff;
+  color: var(--color-primary-dark);
+}
+
+/* ===== Navbar (Header component) ===== */
+.header {
+  border-bottom: 1px solid #eee5f4;
+  padding: 16px 0;
+}
+.header__inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.header__logo-img {
+  height: 64px;             /* الحجم الظاهر للشعار — كبّره زي ما تحب */
+  margin: -17px 0;          /* بتلغي الزيادة من صندوق الـ layout */
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
+}
+.header__nav {
+  display: flex;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: nowrap;      /* keeps "Best Sellers" on one line */
+}
+.header__nav a {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+.header__nav a.is-active,
+.header__nav a:hover {
+  color: var(--color-primary);
+}
+.header__icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  color: var(--color-text);
+  position: relative;
+  display: flex;
+  padding: 6px;
+}
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.65rem;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__burger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 6px;
+}
+.header__burger span {
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: var(--color-footer-bg);
+  color: #d8cce6;
+  padding: 48px 24px 20px;
+}
+.footer__grid {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.3fr;
+  gap: 32px;
+}
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.img-footer {
+  background-image: var(--color-footer-bg);
+}
+.footer h5 {
+  color: #fff;
+  font-size: 0.95rem;
+  margin: 0 0 14px;
+}
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+/* ===== Footer contact (WhatsApp / Call Us) ===== */
+.footer__contact {
+  gap: 18px !important;   /* a bit more breathing room than the plain lists */
+}
+.footer__contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footer__contact-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.footer__contact-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: #d8cce6;
+}
+.footer__contact-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.footer__app-title { margin-top: 24px; }
+.footer__app-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.app-btn {
+  background: #fff;
+  color: var(--color-footer-bg);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: left;
+}
+.footer__bottom {
+  max-width: var(--container-width);
+  margin: 40px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.8rem;
+  text-align: center;
+  color: #b6a8c8;
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE (screens up to 768px) — shared elements
+   ====================================================== */
+@media (max-width: 768px) {
+  .header__inner { padding: 0 16px; }
+  .header__nav {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 8px 16px 16px;
+    border-bottom: 1px solid #eee5f4;
+    display: none;
+  }
+  .header__nav.is-open { display: flex; }
+  .header__nav a { padding: 10px 0; width: 100%; }
+  .header__burger { display: flex; }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 16px;
+  }
+  .footer__brand { grid-column: 1 / -1; }
+}
