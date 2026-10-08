@@ -85,6 +85,11 @@
 .category-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(43, 31, 58, 0.14);
+  /* ألوان خلفية كروت الأقسام (بدل الـ inline style) */
+.category-card--women { --card-bg: #eadcf5; }
+.category-card--men { --card-bg: #f3e6d3; }
+.category-card--luxury { --card-bg: #e6d2d9; }
+.category-card--best-sellers { --card-bg: #f1e5d5; }
 }
 
 
@@ -112,7 +117,8 @@
 .offer {
   position: relative;
   background-color: var(--color-bg-soft);          /* لون احتياطي */
-  background-image: var(--offer-bg, none);         /* الصورة من الـ prop */
+  /*background-image: var(--offer-bg, none);   */      /* الصورة من الـ prop */
+    background-image: url("../images/offer.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

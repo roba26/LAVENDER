@@ -1,0 +1,24 @@
+.products {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+}
+.products__title {
+  margin: 0 0 24px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 2rem;
+}
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1000px) {
+  .products__grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .products { padding: 16px 16px 40px; }
+  .products__grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
